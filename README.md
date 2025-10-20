@@ -1,4 +1,4 @@
-# Nimble 🧠⚡
+# Nimble
 
 Your brain's new favorite workout! A quiz game that actually gets smarter as you do, with encouraging feedback that makes learning feel like winning.
 
