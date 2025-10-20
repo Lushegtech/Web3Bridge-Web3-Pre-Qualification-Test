@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nimble - Your Brain's New Favorite Workout</title>
+    <meta name="description" content="A quiz game that actually gets smarter as you do. Start easy, level up fast, and flex those brain muscles!">
+    <link rel="stylesheet" href="styles-minimal.css">
+</head>
+<body>
+    <header class="header">
+        <h1 class="header__title">Nimble</h1>
+        <p class="header__subtitle">Your brain's new favorite workout • Gets smarter as you do</p>
+    </header>
+
+    <main class="main">
+        <!-- Game Start Screen -->
+        <section class="screen screen--start" id="startScreen" aria-labelledby="start-title">
+            <h2 id="start-title" class="screen__title">Ready to flex that brain?</h2>
+            <p class="screen__description">
+                We'll start you off easy, then ramp up the challenge as you prove yourself. 
+                Think classic trivia meets fresh surprises that keep you coming back.
+            </p>
+            
+            <div class="topic-selector">
+                <label for="topicSelect" class="topic-selector__label">What's your vibe today?</label>
+                <select id="topicSelect" class="topic-selector__select">
+                    <option value="">Loading topics...</option>
+                </select>
+            </div>
+
+            <button type="button" class="btn btn--primary" id="startBtn">
+                Let's Go!
+            </button>
+
+            <button type="button" class="btn btn--secondary" id="leaderboardBtn">
+                See Who's Winning
+            </button>
+        </section>
+
+        <section class="screen screen--quiz" id="quizScreen" aria-labelledby="quiz-title" hidden>
+            <div class="quiz-header">
+                <div class="quiz-progress">
+                    <span class="quiz-progress__text">Question <span id="currentQuestion">1</span> of <span id="totalQuestions">10</span></span>
+                    <div class="quiz-progress__bar">
+                        <div class="quiz-progress__fill" id="progressFill"></div>
+                    </div>
+                </div>
+                
+                <div class="quiz-timer">
+                    <span class="quiz-timer__label">Time:</span>
+                    <span class="quiz-timer__value" id="timerValue">30</span>s
+                </div>
+
+                <div class="quiz-score">
+                    <span class="quiz-score__label">Score:</span>
+                    <span class="quiz-score__value" id="scoreValue">0</span>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <h2 id="quiz-title" class="question-card__title">Loading question...</h2>
+                
+                <div class="answers" id="answersContainer" role="radiogroup" aria-labelledby="quiz-title">
+                </div>
+
+                <div class="question-actions">
+                    <button type="button" class="btn btn--secondary" id="skipBtn">I'll Pass</button>
+                    <button type="button" class="btn btn--primary" id="submitBtn" disabled>Lock It In</button>
+                </div>
+            </div>
+
+            <div class="feedback" id="feedback" hidden>
+                <div class="feedback__content">
+                    <p class="feedback__message" id="feedbackMessage"></p>
+                    <button type="button" class="btn btn--primary" id="nextBtn">Keep Going!</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="screen screen--results" id="resultsScreen" aria-labelledby="results-title" hidden>
+            <h2 id="results-title" class="screen__title">Nice work!</h2>
+            
+            <div class="results-summary">
+                <div class="results-summary__score">
+                    <span class="results-summary__label">You nailed</span>
+                    <span class="results-summary__value" id="finalScore">0</span>
+                    <span class="results-summary__total">out of <span id="finalTotal">10</span></span>
+                </div>
+                
+                <div class="results-summary__percentage">
+                    <span id="percentageScore">0%</span>
+                </div>
+                
+                <p class="results-summary__message" id="performanceMessage">Great effort!</p>
+            </div>
+
+            <div class="results-actions">
+                <button type="button" class="btn btn--primary" id="playAgainBtn">One More Round?</button>
+                <button type="button" class="btn btn--secondary" id="viewLeaderboardBtn">See the Competition</button>
+                <button type="button" class="btn btn--secondary" id="homeBtn">Start Fresh</button>
+            </div>
+        </section>
+
+        <section class="screen screen--leaderboard" id="leaderboardScreen" aria-labelledby="leaderboard-title" hidden>
+            <h2 id="leaderboard-title" class="screen__title">Hall of Fame</h2>
+            
+            <div class="leaderboard-filters">
+                <label for="leaderboardTopic" class="leaderboard-filters__label">Show me the best at:</label>
+                <select id="leaderboardTopic" class="leaderboard-filters__select">
+                    <option value="all">All Topics</option>
+                    <option value="mixed">Mixed Knowledge</option>
+                    <option value="general">General Knowledge</option>
+                    <option value="science">Science & Nature</option>
+                    <option value="history">History</option>
+                    <option value="geography">Geography</option>
+                    <option value="sports">Sports</option>
+                    <option value="entertainment">Entertainment</option>
+                </select>
+            </div>
+
+            <div class="leaderboard" id="leaderboardList">
+                <p class="leaderboard__empty">Nobody's claimed the throne yet. Want to be first?</p>
+            </div>
+
+            <button type="button" class="btn btn--secondary" id="backToHomeBtn">Back to the Action</button>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p class="footer__text">Made with ❤️ for curious minds • No frameworks, just pure speed</p>
+    </footer>
+
+    <div class="toast toast--error" id="errorToast" hidden>
+        <div class="toast__content">
+            <span class="toast__message" id="errorMessage">Something went wrong</span>
+            <button type="button" class="toast__close" id="closeToast" aria-label="Close error message">×</button>
+        </div>
+    </div>
+
+    <script src="quiz-api.js"></script>
+    <script src="quiz-game.js"></script>
+</body>
+</html>
