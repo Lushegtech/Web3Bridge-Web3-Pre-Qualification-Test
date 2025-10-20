@@ -52,7 +52,7 @@ You need a modern web browser with JavaScript enabled. That's it!
 
 1. Clone the repo
    ```bash
-   git clone https://github.com/dhh_elijah/Web3Bridge-Web-Pre-Qualification-Test.git
+   git clone https://github.com/lushegtech/Web3Bridge-Web-Pre-Qualification-Test.git
    ```
 
 2. Navigate to the project directory
