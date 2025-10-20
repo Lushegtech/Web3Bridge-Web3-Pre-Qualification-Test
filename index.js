@@ -531,7 +531,7 @@ class QuizGame {
         
         const leaderboardHTML = scores.map((score, index) => {
             const date = new Date(score.date).toLocaleDateString();
-            const topicName = QUIZ_DATA[score.topic]?.name || score.topic;
+            const topicName = this.getTopicDisplayName(score.topic);
             const duration = Math.round(score.duration / 1000);
             
             return `
@@ -554,6 +554,19 @@ class QuizGame {
     
     filterLeaderboard() {
         this.loadLeaderboard();
+    }
+    
+    getTopicDisplayName(topicId) {
+        const topicMap = {
+            'mixed': 'Mixed Knowledge',
+            'general': 'General Knowledge',
+            'science': 'Science & Nature',
+            'history': 'History',
+            'geography': 'Geography',
+            'sports': 'Sports',
+            'entertainment': 'Entertainment'
+        };
+        return topicMap[topicId] || topicId;
     }
     
     restartQuiz() {
