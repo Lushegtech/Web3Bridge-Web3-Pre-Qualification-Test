@@ -25,14 +25,11 @@ What makes Nimble special? It's not just another quiz app - it's a brain trainin
 
 ## Features
 
-- **Adaptive Intelligence**: ELO-like rating system that learns your skill level and adjusts questions accordingly
 - **External API Integration**: Fresh questions from Open Trivia Database across multiple categories
-- **Humanized Experience**: Encouraging, conversational feedback that celebrates wins and supports learning
 - **Multiple Categories**: Mixed knowledge, science, history, geography, sports, and entertainment
 - **Speed Bonuses**: Lightning-fast correct answers earn extra points (up to +50 bonus!)
 - **Smart Timing**: Variable question timers based on complexity and difficulty
 - **Progress Tracking**: Visual indicators and performance analytics
-- **Accessibility First**: WCAG AA compliant with full keyboard navigation
 - **Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices
 - **Zero Dependencies**: Pure vanilla JavaScript - no frameworks, maximum performance
 
@@ -62,20 +59,6 @@ You need a modern web browser with JavaScript enabled. That's it!
    ```bash
    cd Web3Bridge-Web-Pre-Qualification-Test
    ```
-
-3. Serve the files locally (required for API calls):
-   ```bash
-   # Using Python
-   python -m http.server 8080
-   
-   # Using Node.js
-   npx serve .
-   
-   # Using PHP
-   php -S localhost:8000
-   ```
-
-4. Open your browser and visit `http://localhost:8080`
 
 ## Usage
 
